@@ -7,11 +7,11 @@ import useLogout from '../hooks/useLogout';
 import AdminSidebar from './SidebarComponents/AdminSidebar';
 import { Button } from './ui/button';
 import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from './ui/sheet';
 
 const MobileNav = () => {
@@ -20,7 +20,7 @@ const MobileNav = () => {
 
   const closeDrawer = () => setOpen(false);
   const { currentUser } = useSelector(
-    (state: { user: UserState }) => state.user
+    (state: { user: UserState }) => state.user,
   );
 
   useEffect(() => {
@@ -29,6 +29,8 @@ const MobileNav = () => {
         setOpen(false);
       }
     };
+
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -43,14 +45,13 @@ const MobileNav = () => {
 
       <SheetContent side="right" className="bg-secondary">
         <SheetHeader className="bg-white">
-          <SheetTitle>Born to win</SheetTitle>
+          <SheetTitle>Kay Brooks</SheetTitle>
         </SheetHeader>
 
         <div className="h-15">
           <div>
             {currentUser && currentUser !== null && (
               <div className=" h-full text-black flex flex-col items-start gap-1 pl-2 mt-6 overflow-y-auto">
-
                 {currentUser?.role === 'admin' && (
                   <AdminSidebar closeDrawer={closeDrawer} />
                 )}

@@ -24,7 +24,7 @@ const MobileNavbar = ({ navItems, handleNavClick }: Props) => {
   const navigate = useNavigate();
 
   const { currentUser } = useSelector(
-    (state: { user: UserState }) => state.user
+    (state: { user: UserState }) => state.user,
   );
 
   const handlePortalLogin = () => {
@@ -52,7 +52,7 @@ const MobileNavbar = ({ navItems, handleNavClick }: Props) => {
 
       <SheetContent className="bg-secondary">
         <SheetHeader className="bg-white">
-          <SheetTitle>Born to win</SheetTitle>
+          <SheetTitle>Kay Brooks</SheetTitle>
         </SheetHeader>
 
         <div className="lg:hidden absolute top-17.5 left-0 right-0 bg-(--glass-secondary) backdrop-blur-md text-white p-6 space-y-5">

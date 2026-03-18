@@ -1,12 +1,11 @@
-import HomeNavbar from "../components/HomeNavbar";
-import CallToAction from "../components/HomePage/CallToAction";
-import Features from "../components/HomePage/Features";
-import FooterSection from "../components/HomePage/FooterSection";
-import HeroSection from "../components/HomePage/HeroSection";
-import HowItWorks from "../components/HomePage/HowItWorks";
-import Testimonials from "../components/HomePage/Testimonials";
-import TrackingSection from "../components/HomePage/TrackingSection";
-
+import HomeNavbar from '../components/HomeNavbar';
+import CallToAction from '../components/HomePage/CallToAction';
+import Features from '../components/HomePage/Features';
+import FooterSection from '../components/HomePage/FooterSection';
+import HeroSection from '../components/HomePage/HeroSection';
+import HowItWorks from '../components/HomePage/HowItWorks';
+import ProjectSection from '../components/HomePage/ProjectSection';
+import Testimonials from '../components/HomePage/Testimonials';
 
 const HomePage = () => {
   return (
@@ -19,7 +18,7 @@ const HomePage = () => {
 
       {/* Track Shipment Section */}
       <section id="track">
-        <TrackingSection />
+        <ProjectSection />
       </section>
 
       {/* Features Section */}

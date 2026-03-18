@@ -1,6 +1,5 @@
 import { TypeAnimation } from 'react-type-animation';
 import HeroCarousel from './HeroCarousel';
-// import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const HeroSection = () => {
   return (
@@ -10,16 +9,16 @@ const HeroSection = () => {
         <HeroCarousel />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Fast & Reliable Logistics You Can Trust
+          <h1 className="text-4xl md:text-3xl font-bold mb-4">
+            3D designs, construction and property investment You Can Trust
           </h1>
           <TypeAnimation
             sequence={[
-              'Delivering speed, safety, and satisfaction — every single time.',
+              'Building your dream home in Nigeria — from anywhere in the world.',
               2000,
-              'Connecting people, businesses, and packages — seamlessly.',
+              'Bringing your vision to life with 3D designs and expert execution.',
               2000,
-              'From pickup to delivery — we handle it all with precision.',
+              'From concept to completion — we handle everything with transparency.',
               2000,
             ]}
             wrapper="span"
@@ -35,11 +34,11 @@ const HeroSection = () => {
 
           <TypeAnimation
             sequence={[
-              'Delivering speed, safety, and satisfaction — every single time.',
+              'Building your dream home in Nigeria — from anywhere in the world.',
               2000,
-              'Connecting people, businesses, and packages — seamlessly.',
+              'Bringing your vision to life with 3D designs and expert execution.',
               2000,
-              'From pickup to delivery — we handle it all with precision.',
+              'From concept to completion — we handle everything with transparency.',
               2000,
             ]}
             wrapper="span"

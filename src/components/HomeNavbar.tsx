@@ -15,12 +15,12 @@ const HomeNavbar = () => {
   const [activeSection, setActiveSection] = useState('');
 
   const { currentUser } = useSelector(
-    (state: { user: UserState }) => state.user
+    (state: { user: UserState }) => state.user,
   );
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'track', label: 'Track Package' },
+    { id: 'projects', label: 'Featured Projects' },
     { id: 'features', label: 'Features' },
     { id: 'how-it-works', label: 'How it works' },
     { id: 'testimonials', label: 'Testimonials' },
@@ -112,7 +112,9 @@ const HomeNavbar = () => {
 
   const headerStyle: React.CSSProperties = {
     height: '70px',
-    backgroundColor: isScrolled ? 'var(--glass-secondary)' : 'var(--glass-secondary)',
+    backgroundColor: isScrolled
+      ? 'var(--glass-secondary)'
+      : 'var(--glass-secondary)',
     backdropFilter: isScrolled ? 'blur(10px) saturate(150%)' : undefined,
     WebkitBackdropFilter: isScrolled ? 'blur(10px) saturate(150%)' : undefined,
   };
@@ -142,7 +144,7 @@ const HomeNavbar = () => {
         <div className="flex items-center gap-5">
           {/* Desktop Navigation */}
           <motion.nav
-            className="hidden lg:flex items-center space-x-6"
+            className="hidden md:flex items-center space-x-6"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -153,7 +155,7 @@ const HomeNavbar = () => {
                 whileHover={{ y: -2 }}
                 onClick={() => handleNavClick(item.id)}
                 transition={{ duration: 0.2 }}
-                className={`relative cursor-pointer py-1 text-base transition-colors hover:text-primary-blue ${
+                className={`relative cursor-pointer py-1 text-[13px] transition-colors hover:text-primary-blue ${
                   activeSection === item.id
                     ? 'text-primary-blue-foreground'
                     : 'text-gray-50'
@@ -174,7 +176,7 @@ const HomeNavbar = () => {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               onClick={handleGetStarted}
-              size="sm"
+              size="xs"
               className="bg-(--color-primary-blue) cursor-pointer hover:bg-primary-blue/80 text-white"
             >
               Get Started
@@ -182,7 +184,7 @@ const HomeNavbar = () => {
           </motion.div>
 
           {/* Mobile Toggle */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <MobileNavbar navItems={navItems} handleNavClick={handleNavClick} />
           </div>
         </div>

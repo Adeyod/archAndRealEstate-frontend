@@ -1,67 +1,119 @@
 import { motion } from 'framer-motion';
-import { Bike, CheckCircle, MapPin, Package } from 'lucide-react';
+import { FileText, MapPin, Phone, Receipt, User, Video } from 'lucide-react';
+import { Card, CardContent } from '../ui/card';
 
 const steps = [
   {
-    id: 1,
-    title: 'Create Shipment',
-    icon: Package,
+    title: 'Consultation',
     description:
-      'Easily schedule your delivery by providing package details, pickup, and destination addresses — all in a few clicks.',
+      'We understand your needs, budget, and vision from anywhere in the world.',
   },
   {
-    id: 2,
-    title: 'Assign Rider',
-    icon: Bike,
+    title: 'Design & Planning',
     description:
-      'We assign rider to your delivery for faster and more efficient service.',
+      'We create detailed plans and realistic 3D designs tailored to you.',
   },
   {
-    id: 3,
-    title: 'Track Package',
+    title: 'Approval',
+    description:
+      'You review, request changes, and approve before execution begins.',
+  },
+  {
+    title: 'Build / Purchase',
+    description:
+      'We handle construction or help you secure verified properties.',
+  },
+  {
+    title: 'Delivery',
+    description:
+      'Your project is completed to standard with full transparency.',
+  },
+];
+
+const trustFeatures = [
+  {
+    icon: Video,
+    title: 'Real-Time Video Updates',
+    description: 'Monitor your project progress from anywhere in the world.',
+  },
+  {
     icon: MapPin,
-    description:
-      'Stay updated every step of the way. Track your package in real time and receive instant notifications.',
+    title: 'On-Site Tracking',
+    description: 'Stay updated on every stage of your project.',
   },
   {
-    id: 4,
-    title: 'Delivered Safely',
-    icon: CheckCircle,
-    description:
-      'Your package is delivered securely and promptly to its destination — satisfaction guaranteed.',
+    icon: FileText,
+    title: 'Verified Documentation',
+    description: 'All properties and processes are secure and legitimate.',
+  },
+  {
+    icon: User,
+    title: 'Dedicated Manager',
+    description: 'A single point of contact you can always rely on.',
+  },
+  {
+    icon: Phone,
+    title: 'Regular Communication',
+    description: 'Frequent updates via calls, messages, and reports.',
+  },
+  {
+    icon: Receipt,
+    title: 'Transparent Pricing',
+    description: 'No hidden costs, no surprises at any stage.',
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section className="py-24 px-8 md:px-20 bg-gray-50 text-gray-900">
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-6">
-        How It Works
-      </h2>
-      <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-        We make deliveries effortless — from booking to doorstep delivery.
-        Here’s how our process ensures fast and reliable service every time.
-      </p>
+    <section className="py-16 px-4 md:px-10 bg-white">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+          How It Works
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+          We help you build and invest in property in Nigeria — no matter where
+          you are in the world. With real-time video updates, transparent
+          processes, and verified documentation, you stay in control every step
+          of the way.
+        </p>
 
-      <div className="grid gap-10 md:grid-cols-4 mt-10 text-center">
-        {steps.map(({ id, title, icon: Icon, description }) => (
-          <motion.div
-            key={id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: id * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-white shadow-md rounded-2xl p-8 hover:shadow-lg transition"
-          >
-            <div className="flex flex-col items-center justify-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-primary-blue text-white text-3xl mb-4">
-                <Icon size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{title}</h3>
-              <p className="text-gray-600 text-sm">{description}</p>
-            </div>
-          </motion.div>
-        ))}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white hover:shadow-lg transition"
+            >
+              <Card key={index} className="rounded-2xl shadow-sm">
+                <CardContent className="p-4">
+                  <div className="text-xl font-bold text-primary mb-2">
+                    {index + 1}
+                  </div>
+                  <h3 className="font-semibold mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-600">{step.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {trustFeatures.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <Card key={index} className="rounded-2xl shadow-sm">
+                <CardContent className="p-6 text-left">
+                  <Icon className="w-6 h-6 mb-4 text-primary" />
+                  <h3 className="font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

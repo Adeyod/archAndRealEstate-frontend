@@ -24,7 +24,7 @@ const HeroCarousel = () => {
           <CarouselItem key={idx} className="w-full h-full">
             <img
               src={src}
-              alt={`Slide ${idx + 1}`}
+              alt={`Slide ${idx}`}
               loading={idx === 0 ? 'eager' : 'lazy'}
               decoding="async"
               className="w-full h-full object-contain"
