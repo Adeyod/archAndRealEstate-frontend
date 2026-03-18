@@ -1,19 +1,19 @@
 import { useSelector } from 'react-redux';
-import type { UserState } from '../../../../constants/types';
 import ImageComponent from '../../../../components/ImageComponent';
 import {
   profileImageContainerStyle,
   profileImageStyle,
 } from '../../../../constants/styles';
+import type { UserState } from '../../../../constants/types';
 
 const AdminProfile = () => {
   const { currentUser } = useSelector(
-    (state: { user: UserState }) => state.user
+    (state: { user: UserState }) => state.user,
   );
   console.log('currentUser:', currentUser);
-  const imageObj = currentUser.profile_image && {
-    src: currentUser.profile_image.url,
-    alt: `${currentUser.name}`,
+  const imageObj = currentUser.profileImage && {
+    src: currentUser.profileImage.url,
+    alt: `${currentUser.firstName}`,
   };
   return (
     <div className="w-full flex flex-col gap-4 items-center px-10">
@@ -29,7 +29,7 @@ const AdminProfile = () => {
         <div className="w-full md:w-[45%] space-y-2">
           <div className="text-sm flex justify-between">
             <span className="uppercase  font-bold underline">Name:</span>
-            <span className="capitalize">{currentUser.name}</span>
+            <span className="capitalize">{currentUser.firstName}</span>
           </div>
           <div className="text-sm flex justify-between">
             <span className="uppercase  font-bold underline">Email:</span>

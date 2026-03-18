@@ -1,5 +1,5 @@
-import type { AdminSidebarProps } from '@/constants/types';
 import { NavLink } from 'react-router-dom';
+import type { AdminSidebarProps } from '../../../constants/types';
 
 const AdminOverviewDropDown = ({ closeDrawer }: AdminSidebarProps) => {
   return (
