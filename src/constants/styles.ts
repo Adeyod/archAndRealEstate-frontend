@@ -7,9 +7,11 @@ const profileImageContainerStyle = 'flex flex-col items-center mb-4';
 const navbarImageStyle = 'w-8 h-8 rounded-full';
 const emailVerificationStyle = `${LoginButtonContainerStyle} w-70`;
 
-const modalGeneralStyle = `bg-gray-100 border border-gray-400 mb-20 p-6 rounded-lg shadow-xl max-w-lg w-full mx-4 md:mx-auto mt-10 outline-none`;
-
 export {
-  emailVerificationStyle, LoginButtonContainerStyle, LoginButtonStyle, navbarImageStyle, profileImageContainerStyle, profileImageStyle
+  emailVerificationStyle,
+  LoginButtonContainerStyle,
+  LoginButtonStyle,
+  navbarImageStyle,
+  profileImageContainerStyle,
+  profileImageStyle,
 };
-
