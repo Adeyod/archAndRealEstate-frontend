@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 import logo from '../assets/images/kayBrooksImgRemoveBg.png';
 import type { UserState } from '../constants/types';
 import { roleRedirectMap } from '../hooks/functions';
@@ -96,16 +97,20 @@ const HomeNavbar = () => {
   };
 
   const handleGetStarted = () => {
+    console.log('I want to run portal login');
+    console.log('currentUser?.role:', currentUser?.role);
+
     const role = currentUser?.role;
-    console.log('role:', role);
     const route = role && roleRedirectMap[role];
     console.log('route:', route);
 
     if (!role || !route || route === undefined) {
-      console.log('i want to navigate to register page');
-      navigate('/register');
+      navigate('/login');
+    } else if (!roleRedirectMap[role]) {
+      toast.error(`${currentUser?.role} is an invalid role.`);
       return;
     } else {
+      console.log('I want to navigate to the dashboard');
       navigate(route);
     }
   };

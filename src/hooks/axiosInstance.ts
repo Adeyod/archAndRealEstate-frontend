@@ -12,7 +12,7 @@ type CustomAxiosRequestConfig = AxiosRequestConfig & {
 
 const axiosInstance = axios.create({
   baseURL: host,
-  // withCredentials: true,
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
     // 'x-app-client': appEnum,
@@ -65,7 +65,7 @@ axiosInstance.interceptors.response.use(
       } catch (refreshError) {
         console.error(
           'Refresh token expired or invalid. Logging out...',
-          refreshError
+          refreshError,
         );
         if (!isLoggingOut) {
           isLoggingOut = true;
@@ -77,7 +77,7 @@ axiosInstance.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosInstance;

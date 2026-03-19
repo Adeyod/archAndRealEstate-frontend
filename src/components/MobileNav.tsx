@@ -43,7 +43,7 @@ const MobileNav = () => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="bg-secondary">
+      <SheetContent side="right" className="bg-primary-blue">
         <SheetHeader className="bg-white">
           <SheetTitle>Kay Brooks</SheetTitle>
         </SheetHeader>
@@ -62,7 +62,7 @@ const MobileNav = () => {
                       whileHover={{ y: -2 }}
                       transition={{ duration: 0.2 }}
                       whileTap={{ y: -10 }}
-                      className="cursor-pointer bg-primary-blue px-3.75 font-bold py-1.25 rounded-md hover:bg-primary-blue"
+                      className="cursor-pointer bg-black px-3.75 font-bold py-1.25 rounded-md hover:bg-primary-blue"
                       onClick={() => {
                         handleLogout();
                         closeDrawer();

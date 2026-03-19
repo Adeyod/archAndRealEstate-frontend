@@ -11,7 +11,7 @@ import MobileNav from './MobileNav';
 
 const Navbar = ({ handleSideToggle }: SidebarComponentsProps) => {
   const { currentUser } = useSelector(
-    (state: { user: UserState }) => state.user
+    (state: { user: UserState }) => state.user,
   );
 
   const handleLogout = useLogout();
@@ -26,7 +26,7 @@ const Navbar = ({ handleSideToggle }: SidebarComponentsProps) => {
     : '/';
 
   return (
-    <div className="bg-secondary text-white border-b-gray-700 border-b">
+    <div className="bg-gray-50 border-b-gray-700 border-b">
       <div className="flex justify-between px-5 h-17.5 items-center">
         <div className="flex items-center gap-22">
           <Link to="/" className="text-xl">

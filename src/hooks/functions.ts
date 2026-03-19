@@ -1,4 +1,3 @@
-
 const formatDate = (date = new Date()) => {
   const f_date = new Date(date).toLocaleDateString('en-US', {
     weekday: 'long',
@@ -16,10 +15,8 @@ const formatDate = (date = new Date()) => {
 };
 
 const roleRedirectMap: Record<string, string> = {
-  rider: '/dashboard/rider/overview',
-  sender: '/dashboard/sender/overview',
+  user: '/dashboard/user/overview',
   admin: '/dashboard/admin/overview',
-  super_admin: '/dashboard/super-admin/overview',
 };
 
 const getNextAvailableColumnNumber = (used: number[]): number => {
@@ -79,10 +76,11 @@ const formattedUserRoleForURL = (role: string) => {
   return newRole;
 };
 
-
-
 export {
   capitalizeFirstLetter,
-  formatDate, formattedUserRole, formattedUserRoleForURL, getNextAvailableColumnNumber, roleRedirectMap
+  formatDate,
+  formattedUserRole,
+  formattedUserRoleForURL,
+  getNextAvailableColumnNumber,
+  roleRedirectMap,
 };
-

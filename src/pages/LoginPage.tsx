@@ -50,15 +50,15 @@ const LoginPage = () => {
     try {
       const response = await loginUserMutation(data);
       if (response) {
-        dispatch(loginSuccess(response));
+        dispatch(loginSuccess(response.data));
 
         console.log('response:', response);
         toast.success(response.message);
         switch (response.data.user.role) {
-          case 'USER':
+          case 'user':
             navigate('/dashboard/user/overview');
             break;
-          case 'Admin':
+          case 'admin':
             navigate('/dashboard/admin/overview');
             break;
           default:
@@ -72,9 +72,11 @@ const LoginPage = () => {
       if (axios.isAxiosError(error) && error.response) {
         console.error(error.response.data.message);
         toast.error(error.response.data.message);
+        return;
       } else {
         console.error('An Error occurred:', error);
         toast.error('An error occurred');
+        return;
       }
     }
   };

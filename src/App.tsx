@@ -22,11 +22,13 @@ import RequestEmailVerification from './pages/RequestEmailVerification';
 import ResetPassword from './pages/ResetPassword';
 import Services from './pages/Services';
 import TermsAndConditions from './pages/TermsAndConditions';
+import UserDashboard from './pages/dashboard/user/overview/UserDashboard';
+import UserProfile from './pages/dashboard/user/overview/UserProfile';
 
 function App() {
   const [sideToggle, setSideToggle] = useState(false);
   const { currentUser } = useSelector(
-    (state: { user: UserState }) => state.user
+    (state: { user: UserState }) => state.user,
   );
 
   const handleSideToggle = () => {
@@ -80,7 +82,15 @@ function App() {
             </Route>
 
             {/* PROTECTED ROUTES */}
+            {/* USER */}
+            <Route element={<ProtectedRoutes allowedRoles={['user']} />}>
+              <Route element={<UserProfile />} path="/dashboard/user/profile" />
 
+              <Route
+                element={<UserDashboard />}
+                path="/dashboard/user/overview"
+              />
+            </Route>
 
             {/* ADMIN */}
             <Route element={<ProtectedRoutes allowedRoles={['admin']} />}>
@@ -113,4 +123,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
