@@ -10,7 +10,13 @@ const AdminDashboard = () => {
   //     return response.session;
   //   },
   // });
-  return <div>AdminDashboard</div>;
+  return (
+    <div>
+      This is where we will have statistics of the things going on in the
+      application. Will be done last. You can go to My Profile to see what has
+      been done there
+    </div>
+  );
 };
 
 export default AdminDashboard;

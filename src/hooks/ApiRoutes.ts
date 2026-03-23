@@ -11,16 +11,14 @@ const forgotPasswordRoute = `/auth/forgot-password`;
 const resetPasswordRoute = `/auth/reset-password`;
 const logoutUserRoute = `/auth/logout`;
 
-const getARiderRoute = ``;
-const getAllAdminsRoute = ``;
-const getAnAdminsRoute = ``;
+const getAUserRoute = `users/get-a-user-by-id`;
+const getAllUsersRoute = `users/get-all-users`;
 
 export {
   emailVerificationRoute,
   forgotPasswordRoute,
-  getAllAdminsRoute,
-  getAnAdminsRoute,
-  getARiderRoute,
+  getAllUsersRoute,
+  getAUserRoute,
   loginUserRoute,
   logoutUserRoute,
   registerUserRoute,
@@ -28,6 +26,5 @@ export {
   requestEmailVerificationRoute,
   resendEmailVerificationLinkRoute,
   resetPasswordRoute,
-  verifyUserEmailRoute
+  verifyUserEmailRoute,
 };
-

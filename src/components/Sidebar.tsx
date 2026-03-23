@@ -12,7 +12,7 @@ const Sidebar = ({ sideToggle }: SidebarComponentsProps) => {
     <div
       className={[
         sideToggle ? 'w-0' : 'min-w-55',
-        'bg-primary-blue pt-10 border-r h-full border-r-gray-700 relative bottom-0 mb-32 transition-all duration-300 hidden md:flex overflow-y-auto',
+        'bg-gray-50 pt-10 border-r h-full border-r-gray-700 relative bottom-0 mb-32 transition-all duration-300 hidden md:flex overflow-y-auto',
       ].join(' ')}
     >
       {currentUser?.role === 'admin' && <AdminSidebar />}

@@ -22,6 +22,9 @@ import RequestEmailVerification from './pages/RequestEmailVerification';
 import ResetPassword from './pages/ResetPassword';
 import Services from './pages/Services';
 import TermsAndConditions from './pages/TermsAndConditions';
+import AdminDashboard from './pages/dashboard/admin/overview/AdminDashboard';
+import AdminProfile from './pages/dashboard/admin/overview/AdminProfile';
+import Users from './pages/dashboard/admin/users/Users';
 import UserDashboard from './pages/dashboard/user/overview/UserDashboard';
 import UserProfile from './pages/dashboard/user/overview/UserProfile';
 
@@ -95,16 +98,18 @@ function App() {
             {/* ADMIN */}
             <Route element={<ProtectedRoutes allowedRoles={['admin']} />}>
               {/* ADMIN */}
-              {/* <Route
+              <Route
                 element={<AdminProfile />}
-                path="/dashboard/admin/overview/profile"
+                path="/dashboard/admin/profile"
               />
 
               <Route
                 element={<AdminDashboard />}
-                path="/dashboard/admin/overview/dashboard"
+                path="/dashboard/admin/overview"
               />
-              <Route element={<Payments />} path="/dashboard/admin/payments" /> */}
+
+              <Route element={<Users />} path="/dashboard/admin/users" />
+              {/* <Route element={<Payments />} path="/dashboard/admin/payments" />  */}
             </Route>
 
             <Route element={<TermsAndConditions />} path="/terms" />

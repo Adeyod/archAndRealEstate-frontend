@@ -1,65 +1,91 @@
+import { CircleDollarSign, LayoutDashboard, User } from 'lucide-react';
 import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { NavLink } from 'react-router-dom';
 import type { AdminSidebarProps } from '../../constants/types';
-import AdminOverviewDropDown from '../Admin/DropDownMenus/AdminOverviewDropDown';
-import AdminUsersManagementDropDown from '../Admin/DropDownMenus/AdminUsersManagementDropDown';
+import PaymentManagementDropDown from '../Admin/DropDownMenus/PaymentManagementDropDown';
 import { Button } from '../ui/button';
 
 const AdminSidebar = ({ closeDrawer }: AdminSidebarProps) => {
-  const [overviewToggle, setOverviewToggle] = useState(false);
-  const [usersMgtToggle, setUsersMgtToggle] = useState(false);
+  const [paymentToggle, setPaymentToggle] = useState(false);
 
-  const handleOverviewToggle = () => {
-    setOverviewToggle(!overviewToggle);
-  };
-
-  const handleUsersMgtToggle = () => {
-    setUsersMgtToggle(!usersMgtToggle);
+  const handlePaymentToggle = () => {
+    setPaymentToggle(!paymentToggle);
   };
 
   return (
     <>
-      <div className="flex flex-col ml-5 gap-2 bg-secondary hover:bg-skyblue">
-        <div
-        // className={[studentMenuOpen ? 'mb-[1px]' : 'mb-[10px]', 'ml-5 '].join(
-        //   ' '
-        // )}
-        >
-          <Button className="cursor-pointer" onClick={handleOverviewToggle}>
-            <div className="flex items-center gap-2">
-              <span>
-                {' '}
-                {overviewToggle ? (
-                  <IoIosArrowDown className="text-xl " />
-                ) : (
-                  <IoIosArrowUp className="text-xl " />
-                )}
-              </span>
-              <span>OVERVIEW</span>
-            </div>
-          </Button>
-          {overviewToggle && (
-            <AdminOverviewDropDown closeDrawer={closeDrawer} />
-          )}
+      <div className="flex flex-col ml-5 gap-2">
+        <div className="ml-6 flex flex-col mt-2 gap-1">
+          <NavLink
+            className={({ isActive }) =>
+              [
+                'py-1 px-1 rounded-md transition-colors text-black flex items-center gap-1',
+                isActive ? 'bg-yellow-700 ' : 'hover:bg-yellow-600',
+              ].join(' ')
+            }
+            to="/dashboard/admin/overview"
+            onClick={() => closeDrawer?.()}
+          >
+            <LayoutDashboard size={18} />
+            Dashboard
+          </NavLink>
+        </div>
+
+        <div className="ml-6 flex flex-col mt-2 gap-1">
+          <NavLink
+            className={({ isActive }) =>
+              [
+                'py-1 px-1 rounded-md transition-colors text-black flex items-center gap-1',
+                isActive ? 'bg-yellow-700 ' : 'hover:bg-yellow-600',
+              ].join(' ')
+            }
+            to="/dashboard/admin/users"
+            onClick={() => closeDrawer?.()}
+          >
+            <User size={18} />
+            Users
+          </NavLink>
         </div>
 
         <div>
-          <Button className="cursor-pointer" onClick={handleUsersMgtToggle}>
-            <div className="flex items-center gap-2">
-              <span>
-                {' '}
-                {usersMgtToggle ? (
-                  <IoIosArrowDown className="text-xl " />
-                ) : (
-                  <IoIosArrowUp className="text-xl " />
-                )}
-              </span>
-              <span>User Management</span>
+          <Button
+            className="cursor-pointer bg-teal text-black hover:bg-skyblue w-full px-4"
+            onClick={handlePaymentToggle}
+          >
+            <div className="grid grid-cols-[1fr_80px] w-full">
+              <div className="flex items-center gap-1 text-start">
+                <span>
+                  <CircleDollarSign size={18} />
+                </span>
+                <span>Payments</span>
+              </div>{' '}
+              {paymentToggle ? (
+                <IoIosArrowDown className="text-xl justify-self-end " />
+              ) : (
+                <IoIosArrowUp className="text-xl justify-self-end " />
+              )}
             </div>
           </Button>
-          {usersMgtToggle && (
-            <AdminUsersManagementDropDown closeDrawer={closeDrawer} />
+          {paymentToggle && (
+            <PaymentManagementDropDown closeDrawer={closeDrawer} />
           )}
+        </div>
+
+        <div className="ml-6 flex flex-col mt-2 gap-1">
+          <NavLink
+            className={({ isActive }) =>
+              [
+                'py-1 px-1 rounded-md transition-colors text-black flex items-center gap-1',
+                isActive ? 'bg-yellow-700 ' : 'hover:bg-yellow-600',
+              ].join(' ')
+            }
+            to="/dashboard/admin/profile"
+            onClick={() => closeDrawer?.()}
+          >
+            <User size={18} />
+            My Profile
+          </NavLink>
         </div>
       </div>
     </>

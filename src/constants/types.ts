@@ -1,4 +1,3 @@
-
 export type TextLoaderProps = {
   text: React.ReactNode;
   className?: string;
@@ -6,6 +5,14 @@ export type TextLoaderProps = {
 
 export type AdminSidebarProps = {
   closeDrawer?: () => void;
+};
+
+export type AllUsersProp = SearchProp & {
+  totalUsersCount: number;
+  allUsers: CurrentUserType[];
+  userRole: string;
+  isLoading: boolean;
+  handlePageChange: (page: number) => void;
 };
 
 export type CircularLoaderProps = {
@@ -106,8 +113,6 @@ export type ReusableModalProps = {
   modalStyle: string;
 };
 
-
-
 export type RequestEmailVerificationPayload = {
   email: string;
 };
@@ -115,10 +120,6 @@ export type RequestEmailVerificationPayload = {
 export type EmailVerificationPayload = {
   token: string;
 };
-
-
-
-
 
 export type LoginFormData = {
   email: string;
@@ -154,24 +155,11 @@ export type ButtonProps = {
   buttonStyle?: CSSProperties | string;
 };
 
-
-
 export type SearchProp = {
   searchValue: string;
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
   handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
-
-
-
-
-
-
-
-
-
-
-
 
 export type ReusableTableProps = {
   data: CurrentUserType[];
@@ -199,5 +187,3 @@ export type SummaryStatisticsType = {
   totalCounts: number;
   userType: string;
 };
-
-

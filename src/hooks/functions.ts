@@ -63,6 +63,13 @@ const formattedUserRole = (role: string) => {
   return newRole;
 };
 
+const formatDateWithoutWeekDay = (date = new Date()) => {
+  const value = formatDate(date);
+  const splittedValue = value.split(',');
+  const formatted = `${splittedValue[1]},${splittedValue[2]}`;
+  return formatted;
+};
+
 const formattedUserRoleForURL = (role: string) => {
   const splittedRole = role.split('_');
   const firstPart = splittedRole[0];
@@ -79,6 +86,7 @@ const formattedUserRoleForURL = (role: string) => {
 export {
   capitalizeFirstLetter,
   formatDate,
+  formatDateWithoutWeekDay,
   formattedUserRole,
   formattedUserRoleForURL,
   getNextAvailableColumnNumber,
