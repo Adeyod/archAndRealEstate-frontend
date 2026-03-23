@@ -26,8 +26,8 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
 }) => {
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAddFeeModalOpen, setIsAddFeeModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isAddFeeModalOpen, setIsAddFeeModalOpen] = useState(false);
 
   const dropdownRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const isChosenRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -35,9 +35,9 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
   const isAllSelected =
     selectedIds?.length === data?.length && data?.length > 0;
 
-  const closeDropdown = () => {
-    setOpenDropdownId(null);
-  };
+  // const closeDropdown = () => {
+  //   setOpenDropdownId(null);
+  // };
 
   const handleSelectAll = () => {
     if (isAllSelected) {
@@ -60,13 +60,13 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
     setOpenDropdownId((prevId) => (prevId === rowId ? null : rowId));
   };
 
-  const handleToggleModal = (rowId: string) => {
-    setIsModalOpen(true);
+  // const handleToggleModal = (rowId: string) => {
+  //   setIsModalOpen(true);
 
-    setActiveRowId(rowId);
-    setOpenDropdownId(null);
-    console.log('rowId:', rowId);
-  };
+  //   setActiveRowId(rowId);
+  //   setOpenDropdownId(null);
+  //   console.log('rowId:', rowId);
+  // };
 
   // useEffect(() => {
   //   const updateDropdownPositions = () => {
@@ -126,6 +126,8 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
     const anchor = dropdownRefs.current[rowId];
 
     if (!anchor) return null;
+
+    console.log(row);
 
     const rect = anchor.getBoundingClientRect();
 

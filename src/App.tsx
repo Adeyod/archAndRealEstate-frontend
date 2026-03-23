@@ -24,6 +24,7 @@ import Services from './pages/Services';
 import TermsAndConditions from './pages/TermsAndConditions';
 import AdminDashboard from './pages/dashboard/admin/overview/AdminDashboard';
 import AdminProfile from './pages/dashboard/admin/overview/AdminProfile';
+import SingleUserPage from './pages/dashboard/admin/users/SingleUserPage';
 import Users from './pages/dashboard/admin/users/Users';
 import UserDashboard from './pages/dashboard/user/overview/UserDashboard';
 import UserProfile from './pages/dashboard/user/overview/UserProfile';
@@ -109,6 +110,10 @@ function App() {
               />
 
               <Route element={<Users />} path="/dashboard/admin/users" />
+              <Route
+                element={<SingleUserPage />}
+                path="/dashboard/admin/users/:userId"
+              />
               {/* <Route element={<Payments />} path="/dashboard/admin/payments" />  */}
             </Route>
 

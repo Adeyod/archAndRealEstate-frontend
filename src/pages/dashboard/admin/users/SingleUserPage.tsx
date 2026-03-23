@@ -1,16 +1,16 @@
-import TeacherDetails from '@/components/Teacher/TeacherDetails';
 import { useParams } from 'react-router-dom';
+import UserDetails from '../../../../components/User/UserDetails';
 
-const SingleTeacherPage = () => {
-  const { teacherId } = useParams<{ teacherId: string }>();
+const SingleUserPage = () => {
+  const { userId } = useParams<{ userId: string }>();
 
-  console.log('teacherId inside single student page file:', teacherId);
+  console.log('userId inside single student page file:', userId);
 
-  if (!teacherId) {
+  if (!userId) {
     return;
   }
 
-  return <TeacherDetails id={teacherId} />;
+  return <UserDetails id={userId} />;
 };
 
-export default SingleTeacherPage;
+export default SingleUserPage;
