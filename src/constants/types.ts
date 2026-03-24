@@ -83,7 +83,7 @@ export type CurrentUserType = {
   email: string;
   firstName: string;
   lastName: string;
-  referral_code: string;
+  referralCode: string;
   city: string;
   isVerified: boolean;
   phoneNumber: string;

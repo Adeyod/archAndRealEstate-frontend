@@ -25,6 +25,7 @@
     "framer-motion": "^12.35.2",
     "joi": "^18.0.2",
     "lucide-react": "^0.577.0",
+    "nanoid": "^5.1.7",
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-data-table-component": "^7.7.0",
