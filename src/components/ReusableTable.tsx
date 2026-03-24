@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { CurrentUserType, ReusableTableProps } from '../constants/types';
 import { capitalizeFirstLetter, formatDate } from '../hooks/functions';
-// import ReusableModal from './ReusableModal';
+
 import { Eye, MoreHorizontal } from 'lucide-react';
 import {
   MdOutlineCheckBox,
@@ -26,18 +26,12 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
 }) => {
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isAddFeeModalOpen, setIsAddFeeModalOpen] = useState(false);
 
   const dropdownRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const isChosenRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const dropdownContainerRef = useRef<HTMLDivElement | null>(null);
   const isAllSelected =
     selectedIds?.length === data?.length && data?.length > 0;
-
-  // const closeDropdown = () => {
-  //   setOpenDropdownId(null);
-  // };
 
   const handleSelectAll = () => {
     if (isAllSelected) {
@@ -121,18 +115,16 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [openDropdownId]);
 
-  const renderDropdown = (rowId: string, row: CurrentUserType) => {
+  const renderDropdown = (rowId: string) => {
     // const isDropUp = dropUpMap[rowId] ?? false;
     const anchor = dropdownRefs.current[rowId];
 
     if (!anchor) return null;
 
-    console.log(row);
-
     const rect = anchor.getBoundingClientRect();
 
-    const DROPDOWN_WIDTH = 174;
-    const VIEWPORT_PADDING = 28;
+    const DROPDOWN_WIDTH = 154;
+    const VIEWPORT_PADDING = 68;
 
     const dropdownHeight = dropdownContainerRef.current?.offsetHeight ?? 200;
 
@@ -142,13 +134,10 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
     const shouldDropUp =
       spaceBelow < dropdownHeight && spaceAbove > dropdownHeight;
 
-    const left = Math.min(
-      rect.left,
-      window.innerWidth - DROPDOWN_WIDTH - VIEWPORT_PADDING,
-    );
+    const left = Math.min(rect.left, window.innerWidth - DROPDOWN_WIDTH - 100);
 
-    // const top = isDropUp ? rect.top - 100 : rect.bottom + 4;
-    let top = shouldDropUp ? rect.top - dropdownHeight - 4 : rect.bottom + 4;
+    let top = shouldDropUp ? rect.top - 100 : rect.bottom + 4;
+    // let top = shouldDropUp ? rect.top - dropdownHeight - 4 : rect.bottom + 4;
 
     top = Math.max(
       VIEWPORT_PADDING,
@@ -184,30 +173,6 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
           Copy ID
         </button>
         <Separator />
-
-        {/* {(userRole === 'super-admin' || userRole === 'admin') &&
-          roleToFetch === 'students' && (
-            <div>
-              <button
-                onClick={() => {
-                  if (!row.active_class_enrolment) return;
-                  setIsAddFeeModalOpen(true);
-                  setActiveRowId(rowId);
-                  closeDropdown();
-                }}
-                disabled={!row.active_class_enrolment}
-                className={`block px-4 py-2 text-sm rounded transition
-          ${
-            row.active_class_enrolment
-              ? 'text-gray-700 hover:bg-gray-100 cursor-pointer'
-              : 'text-gray-400 cursor-not-allowed bg-gray-50'
-          }
-        `}
-              >
-                Add Fee
-              </button>
-            </div>
-          )} */}
       </div>,
       document.getElementById('dropdown-root')!,
     );
@@ -269,8 +234,6 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
         );
       },
     },
-
-    ...(roleToFetch !== 'parents' ? [statusColumn] : []),
     {
       name: 'Verified',
       // selector: (row) => (row.is_verified ? 'True' : 'False'),
@@ -291,6 +254,7 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
         );
       },
     },
+    statusColumn,
     {
       name: 'First Name',
       selector: (row) => capitalizeFirstLetter(row.firstName || ''),
@@ -328,12 +292,12 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
             <div className="flex items-center gap-2 justify-center">
               <MyCustomTooltip
                 content="View Details"
-                bgColor="bg-teal"
+                bgColor="bg-primary-blue"
                 textColor="text-white"
               >
                 <Link
                   to={`/dashboard/${userRole}/${roleToFetch}/${rowId}`}
-                  className="bg-teal text-white px-3 py-1 rounded cursor-pointer"
+                  className="bg-primary-blue text-white px-3 py-1 rounded cursor-pointer"
                 >
                   <Eye size={18} />
                 </Link>
@@ -349,7 +313,7 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
                 <MoreHorizontal />
               </button>
             </div>
-            {isOpen && renderDropdown(rowId, row)}
+            {isOpen && renderDropdown(rowId)}
           </div>
         );
       },
@@ -369,21 +333,6 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
         paginationTotalRows={totalRows}
         onChangePage={onPageChange}
       />
-
-      {/* <ReusableModal
-        isOpen={isSubjectTeachingAssignmentModalOpen}
-        onClose={() => setIsSubjectTeachingAssignmentModalOpen(false)}
-        title="Teacher Subject Assignment Form"
-        modalStyle={teacherSubjectAssignmentFormModalStyle}
-      >
-        {activeRowId && (
-          <TeacherSubjectAssignmentForm
-            isModalOpen={isSubjectTeachingAssignmentModalOpen}
-            setIsModalOpen={setIsSubjectTeachingAssignmentModalOpen}
-            teacherId={Object(activeRowId)}
-          />
-        )}
-      </ReusableModal> */}
     </div>
   );
 };

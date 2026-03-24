@@ -15,6 +15,7 @@ const tailwindColorMap: Record<string, string> = {
   'bg-red-500': '#ef4444',
   'bg-secondary': '#059669',
   'bg-green-400': '#4ade80',
+  'bg-primary-blue': '#3594d0',
   // add more if needed
 };
 
