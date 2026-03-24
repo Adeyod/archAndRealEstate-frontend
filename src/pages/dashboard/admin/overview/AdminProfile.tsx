@@ -74,7 +74,10 @@ const AdminProfile = () => {
               style="lowercase"
             />
 
-            <ProfileField label="Phone" value={currentUser?.phone || 'N/A'} />
+            <ProfileField
+              label="Phone"
+              value={currentUser?.phoneNumber || 'N/A'}
+            />
             <ProfileField
               label="Status"
               value={currentUser?.status || 'N/A'}

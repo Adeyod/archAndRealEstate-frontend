@@ -14,9 +14,8 @@ const UserDetails: React.FC<IdParamFetch> = ({ id }) => {
     placeholderData: (prev) => prev,
   });
 
-  console.log('data:', data.data);
-
   const aUser = data?.data;
+  console.log('aUser:', aUser);
 
   return (
     <div className="mb-32">
@@ -35,18 +34,18 @@ const UserDetails: React.FC<IdParamFetch> = ({ id }) => {
           <p className="uppercase my-2 text-xl">User Details Page</p>
           <Separator className="mb-3" />
 
-          <div className="border-2 rounded-lg border-gray-200 lg:w-[40vw] gap-3 flex flex-col p-4 text-[14px] lg:text-xl">
+          <div className="border-2 rounded-lg border-gray-200 lg:w-[50vw] gap-3 flex flex-col p-4 text-[14px] lg:text-xl">
             <p className="my-1 text-xl">User Details</p>
             <Separator />
 
             <div className="border">
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className="  ">ID</span>
                 <span>{aUser?._id.toString()}</span>
               </p>
 
               <Separator />
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className="  ">Verified</span>
                 <span
                   className={
@@ -60,7 +59,7 @@ const UserDetails: React.FC<IdParamFetch> = ({ id }) => {
               </p>
 
               <Separator />
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className="  ">Status </span>
                 <span
                   className={
@@ -74,33 +73,33 @@ const UserDetails: React.FC<IdParamFetch> = ({ id }) => {
               </p>
 
               <Separator />
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className="  ">Role</span>
                 <span className="uppercase">{aUser?.role}</span>
               </p>
 
               <Separator />
 
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className=" ">First Name</span>
                 <span className="text-start uppercase">{aUser?.firstName}</span>
               </p>
               <Separator />
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className=" ">Last Name</span>
                 <span className="text-start uppercase">{aUser?.lastName}</span>
               </p>
 
               <Separator />
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className="  ">Email</span>
                 <span>{aUser?.email}</span>
               </p>
 
               <Separator />
-              <p className="grid grid-cols-[250px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
+              <p className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr] pl-5 my-2 text-[14px] md:text-[13px] lg:text-[16px]">
                 <span className="  ">Phone</span>
-                <span>{aUser?.phone}</span>
+                <span>{aUser?.phoneNumber}</span>
               </p>
             </div>
           </div>

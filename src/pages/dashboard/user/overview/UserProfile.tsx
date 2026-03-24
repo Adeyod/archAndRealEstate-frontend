@@ -40,7 +40,7 @@ const UserProfile = () => {
         <div className="w-full md:w-[45%] space-y-2">
           <div className="text-sm flex justify-between">
             <span className="uppercase  font-bold underline">Phone:</span>
-            <span className="capitalize">{currentUser.phone || ''}</span>
+            <span className="capitalize">{currentUser.phoneNumber || ''}</span>
           </div>
           <div className="text-sm flex justify-between">
             <span className="uppercase  font-bold underline">

@@ -86,7 +86,7 @@ export type CurrentUserType = {
   referral_code: string;
   city: string;
   isVerified: boolean;
-  phone: string;
+  phoneNumber: string;
   role: string;
   status: string;
   updatedAt: Date;
