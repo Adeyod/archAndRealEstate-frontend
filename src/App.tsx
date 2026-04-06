@@ -9,6 +9,12 @@ import PublicRoutes from './components/PublicRoutes';
 import Sidebar from './components/Sidebar';
 import type { UserState } from './constants/types';
 import ContactUs from './pages/ContactUs';
+import AdminDashboard from './pages/dashboard/admin/overview/AdminDashboard';
+import AdminProfile from './pages/dashboard/admin/overview/AdminProfile';
+import SingleUserPage from './pages/dashboard/admin/users/SingleUserPage';
+import Users from './pages/dashboard/admin/users/Users';
+import UserDashboard from './pages/dashboard/user/overview/UserDashboard';
+import UserProfile from './pages/dashboard/user/overview/UserProfile';
 import EmailVerification from './pages/EmailVerification';
 import Faq from './pages/Faq';
 import ForgotPassword from './pages/ForgotPassword';
@@ -17,17 +23,12 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import NotFound from './pages/NotFound';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import ReferralPage from './pages/ReferralPage';
 import RegisterPage from './pages/RegisterPage';
 import RequestEmailVerification from './pages/RequestEmailVerification';
 import ResetPassword from './pages/ResetPassword';
 import Services from './pages/Services';
 import TermsAndConditions from './pages/TermsAndConditions';
-import AdminDashboard from './pages/dashboard/admin/overview/AdminDashboard';
-import AdminProfile from './pages/dashboard/admin/overview/AdminProfile';
-import SingleUserPage from './pages/dashboard/admin/users/SingleUserPage';
-import Users from './pages/dashboard/admin/users/Users';
-import UserDashboard from './pages/dashboard/user/overview/UserDashboard';
-import UserProfile from './pages/dashboard/user/overview/UserProfile';
 
 function App() {
   const [sideToggle, setSideToggle] = useState(false);
@@ -83,6 +84,7 @@ function App() {
               />
               <Route element={<ForgotPassword />} path="/forgot-password" />
               <Route element={<ResetPassword />} path="/reset-password" />
+              <Route element={<ReferralPage />} path="/ref/:code" />
             </Route>
 
             {/* PROTECTED ROUTES */}
